@@ -1,0 +1,151 @@
+body {
+    background-color: #051923;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nav {
+    background-color: #0582ca;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__link {
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    line-height: 22px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #333;
+    border: #0582ca solid 2px;
+}
+
+.nav__link:hover {
+    background-color: #0582ca;
+    color: #fff;
+    border: #fff solid 2px;
+}
+
+
+.map-container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 20px 20px;
+    border: 2px solid #fff;
+    border-radius: 15px;
+}
+
+.controls {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+}
+
+.map {
+    flex: 1;
+    height: 600px;
+    width: 600px;
+}
+
+main {
+    margin:0 auto;
+    width: 80%;
+}
+
+.app {
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.map {
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.content-upper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="range"] {
+    width: 80%;
+    margin: 5px 0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0582ca;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggleSimulation {
+    background-color: green;
+}
+
+#toggleSimulation:hover {
+    background-color: darkgreen;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: "Note: This is not your render time, use lighthouse for that";
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.tooltip2::after {
+    content: "Use this to manually stop the time when you believe the rendering is finished, for a better accuracy you can use chromes lighthouse etc it gives a better overlook of the rendering/paint time";
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+.docs-upper {
+    text-align: left;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
