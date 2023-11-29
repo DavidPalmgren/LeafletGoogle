@@ -4,6 +4,8 @@ Varning: halvfärdigt projekt
 
 Starta med `node server.js`
 
+![Alt Text](frontend/static/img/leaflettest.png)
+
 Documentation page:
 Hi, this is a simple project meant to measure the loading differences between some popular map tools such as Leaflet, Google Maps JavaScript API, and more to come.
 
