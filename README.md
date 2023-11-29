@@ -1,8 +1,8 @@
-# LeafletGoogle
+# Leaflet vs Google
 Teknisk studie: Leaflet vs GoogleAPI
 Varning: halvfärdigt projekt
 
-Starta med godtyckligt kommando som Node server.js
+Starta med `node server.js`
 
 Documentation page:
 Hi, this is a simple project meant to measure the loading differences between some popular map tools such as Leaflet, Google Maps JavaScript API, and more to come.
