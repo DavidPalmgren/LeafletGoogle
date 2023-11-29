@@ -28,3 +28,8 @@ Marker Load Time: Represents the time it takes for the backend to finish creatin
 Manual Load Time: Represents the time it takes until you hit the stop time (Manual) button.
 
 Heap size Used/Limit: Is the Heap size used divided by the Limit. Frankly, I was trying to put in as many stats as I could. Maybe someone smarter than me will have a better time understanding it if it has any value at all or not.
+
+Simplistisk slutsats
+Google är mycket snabbare än leaflet särskillt då det gäller att rendera markers. Fast det kostar pengar efter prövnings period vilket man måste väga.
+Välj Google om du inte har något emot att betala för deras service, performance är bättre som man kan tänka sig av Google.
+Välj Leaflet om du vill ha ett gratis alternativ och ditt projekt inte behöver rendera ett par tusen markers utan att hacka.
