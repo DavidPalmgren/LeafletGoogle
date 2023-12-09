@@ -6,6 +6,7 @@ import Leaflet from "./views/LeafletView.js";
 import Google from "./views/GoogleView.js";
 import Docs from "./views/DocsView.js";
 import Results from "./views/ResultsView.js";
+import Zone from "./views/ZoneView.js";
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -30,6 +31,8 @@ const router = async () => {
         { path: "/google", view: Google },
         { path: "/docs", view: Docs },
         { path: "/results", view: Results },
+        { path: "/zone", view: Zone },
+
 
         //{ path: "/posts/:id", view: PostView },
         //{ path: "/settings", view: Settings }
