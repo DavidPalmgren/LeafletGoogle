@@ -73,7 +73,8 @@ export default class extends AbstractView {
 
         // handles posting all zones
         document.querySelector('#postAllZonesButton').addEventListener('click', async () => {
-            await this.postAllZones();
+            let tokenholder = await this.getToken();
+            await this.postAllZones(tokenholder.data.token);
         });
     }
 
@@ -88,14 +89,37 @@ export default class extends AbstractView {
         });
     }
 
-    async postAllZones() {
+    async getToken() {
+        try {
+            const response = await fetch(`http://localhost:1337/admin/token`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: "POST",
+                body: JSON.stringify({
+                    "username": "chefen",
+                    "password": "chefen"
+                })
+            })
+            const res = await response.json()
+            return res
+        } catch (error) {
+            console.error(error)
+            throw new Error('well shit not wroking is it')
+        }
+    }
+    // lägg in en token här manuellt om något inte fungerar
+    // ingen safety fall du postar conflict 409 i databasen och det kommer hända om du skickar in med samma värden för att tömma kör bara en f5
+    // men conflict 409 spelar ingen roll, ingen krash eller negativa saker som händer bara ett surt meddelande i console
+    async postAllZones(token) {
+        console.log(token)
         try {
             await Promise.all(this.zones.map(async (zone) => {
                 const res = await fetch(`http://localhost:1337/zone/${zone.zoneId}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-Access-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWRtaW4iLCJhZG1pblVzZXJuYW1lIjoiY2hlZmVuIiwiYWRtaW5MZXZlbCI6InN1cGVyYWRtaW4iLCJpZCI6MSwiaWF0IjoxNzAyMTM5Njc2LCJleHAiOjE3MDIxNTQwNzZ9.ijyeNG9XmYe1swcvpfFGwyVSbB998ujP1dn_J2u564Y'
+                        'X-Access-Token': token
                     },
                     body: JSON.stringify(zone)
                 });
@@ -110,7 +134,7 @@ export default class extends AbstractView {
         return `
         <h1 style="color:white">Zone Creator</h1>
         <div class="content-upper">
-            <!-- Form and buttons will be dynamically added -->
+            <!-- Everything dynamically added -->
         </div>
         `;
     };
