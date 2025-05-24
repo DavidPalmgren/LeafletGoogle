@@ -1,6 +1,6 @@
 # Leaflet vs Google
 Teknisk studie: Leaflet vs GoogleAPI
-Varning: halvfärdigt projekt
+Warning: This was for bonus point for a bth course, ultimately this wasnt finished because we had already gotten the points for our other study so this was mearly for my own interest
 
 Starta med `node server.js`
 
