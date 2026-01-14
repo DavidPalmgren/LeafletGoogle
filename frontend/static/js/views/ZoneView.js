@@ -46,6 +46,8 @@ export default class extends AbstractView {
             <textarea id="zoneDescription" name="zoneDescription" required></textarea><br><br>
             <label for="zoneParkingValue">Parking Value:</label>
             <input type="number" id="zoneParkingValue" name="zoneParkingValue" required><br><br>
+            <label for="zoneMaxSpeed">Max speed:</label>
+            <input type="number" id="zoneMaxSpeed" name="zoneMaxSpeed" required><br><br>
             <button type="submit" id="finishZoneButton">Finish Zone</button>
             <button type="button" id="postAllZonesButton">Post All Zones</button>
         `;
@@ -62,7 +64,8 @@ export default class extends AbstractView {
                 colour: formData.get('zoneColour'),
                 name: formData.get('zoneName'),
                 description: formData.get('zoneDescription'),
-                parkingValue: parseFloat(formData.get('zoneParkingValue'))
+                parkingValue: parseFloat(formData.get('zoneParkingValue')),
+                maxSpeed: parseFloat(formData.get('zoneMaxSpeed'))
             };
             this.zones.push(zoneData);
             this.zoneMarkers = [];
@@ -91,7 +94,7 @@ export default class extends AbstractView {
 
     async getToken() {
         try {
-            const response = await fetch(`http://localhost:1337/admin/token`, {
+            const response = await fetch(`http://localhost:1337/v1/admin/token`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -115,7 +118,7 @@ export default class extends AbstractView {
         console.log(token)
         try {
             await Promise.all(this.zones.map(async (zone) => {
-                const res = await fetch(`http://localhost:1337/zone/${zone.zoneId}`, {
+                const res = await fetch(`http://localhost:1337/v1/zone/${zone.zoneId}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
